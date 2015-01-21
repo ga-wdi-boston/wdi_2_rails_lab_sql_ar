@@ -12,6 +12,8 @@ By the end of this, students should be able to:
 
 ## Instructions
 
+`bundle && rake db:create db:migrate db:test:prepare`
+
 Include explict step-by-step instructions about the goals of the assignment, and how to run the code.
 
 Make sure to wrap section of code in appropriate markdown like `ls -al`, and denote the language as below for longer sections:
