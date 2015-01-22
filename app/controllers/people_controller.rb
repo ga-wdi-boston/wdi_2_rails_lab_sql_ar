@@ -27,8 +27,8 @@ class PeopleController < ApplicationController
     # First you'll want to find the person, assign them to @person
     # then update their attributes
     @person = Person.find(params[:id])
-    @person.update!(people_params)
-
+    #@person.update!(people_params)
+    @person.update_attributes(people_params)
     redirect_to @person # Do not alter this line
   end
 
@@ -36,8 +36,7 @@ class PeopleController < ApplicationController
     # Delete a person record from the DELETE action
     # First you'll want to find the person
     # Then delete them
-    @person = Person.find(params[:id])
-    @person.delete
+    @person = Person.find(params[:id]).delete
     redirect_to Person # Do not alter this line
   end
 
