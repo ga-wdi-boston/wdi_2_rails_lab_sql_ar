@@ -1,11 +1,13 @@
 class PeopleController < ApplicationController
   def index
     # Assign all instances of people to @people
+    @people = Person.all
   end
 
   def show
     # Assign a person with a specific id from the parameters to @person
     # Remember the id can come from params[:id]
+    @person = Person.find(params[:id])
   end
 
   def create
@@ -13,7 +15,8 @@ class PeopleController < ApplicationController
     # Assign this new person to @person
     # which you can access with people_params
     # people_params is a hash of first_name, last_name and age
-
+    # @person = Person.new(people_params)
+    @person = Person.create(people_params)
     redirect_to @person # Do not alter this line
   end
 
@@ -22,7 +25,8 @@ class PeopleController < ApplicationController
     # people_params is a hash of first_name, last_name and age
     # First you'll want to find the person, assign them to @person
     # then update their attributes
-
+    @person = Person.find(params[:id])
+    @person.update(people_params)
     redirect_to @person # Do not alter this line
   end
 
@@ -30,7 +34,8 @@ class PeopleController < ApplicationController
     # Delete a person record from the DELETE action
     # First you'll want to find the person
     # Then delete them
-
+    @person = Person.find(params[:id])
+    @person.destroy
     redirect_to Person # Do not alter this line
   end
 
