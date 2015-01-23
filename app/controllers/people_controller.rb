@@ -2,12 +2,14 @@ class PeopleController < ApplicationController
   def index
     # Assign all instances of people to @people
     @people = Person.all
+    # SELECT * FROM people;
   end
 
   def show
     # Assign a person with a specific id from the parameters to @person
     # Remember the id can come from params[:id]
     @person = Person.find(params[:id])
+    # SELECT id FROM people;
   end
 
   def create
@@ -16,6 +18,8 @@ class PeopleController < ApplicationController
     # which you can access with people_params
     # people_params is a hash of first_name, last_name and age
     @person = Person.create(people_params)
+    # INSERT INTO people(first_name, last_name, age);
+    # ???
 
     redirect_to @person # Do not alter this line
   end
